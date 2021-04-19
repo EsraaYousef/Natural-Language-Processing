@@ -10,26 +10,22 @@ function handleSubmit(event) {
   Client.checkForName(formText);
   console.log("::: Form Submitted :::");
 
-  // fetch("http://localhost:8081/test")
-  //   .then((res) => res.json())
-  //   .then(function (res) {
-  //     document.getElementById("results").innerHTML = res.message;
-  //   });
-
   const requestOptions = {
     method: "POST",
     body: formdata,
     redirect: "follow",
   };
+
   const response = fetch(
     "https://api.meaningcloud.com/sentiment-2.1",
     requestOptions
   )
-    .then((response) => ({
-      status: response.status,
-      body: response.json(),
-    }))
-    .then(({ status, body }) => console.log(status, body))
-    .catch((error) => console.log("error here", error));
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      document.getElementById("results").innerHTML =
+        data.status.remaining_credits;
+    })
+    .catch((error) => console.log("fetching error", error));
 }
 export { handleSubmit };

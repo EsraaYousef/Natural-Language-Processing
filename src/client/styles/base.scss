@@ -31,6 +31,9 @@ $radius: 5px;
 .p-20 {
     padding: 20px;
 }
+.mt-20{
+    margin-top: 20px;;
+}
 .w-radius {
     border-radius: $radius;
     overflow: hidden;
@@ -43,6 +46,9 @@ $radius: 5px;
 }
 .text-center{
     text-align: center;
+}
+.text-danger{
+    color: red;
 }
 body {
     display: flex;
