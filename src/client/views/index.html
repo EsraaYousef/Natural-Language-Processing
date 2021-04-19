@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="image" content="../images/udacity.png" />
+  <link rel="shortcut icon" type="image/png" href="favicon.ico" />
   <title>Test</title>
 </head>
 
@@ -48,7 +48,6 @@
     if ("serviceWorker" in navigator) {
       // Use the window load event to keep the page load performant
       window.addEventListener("load", () => {
-        // navigator.serviceWorker.register("../dist/service-worker.js");
         navigator.serviceWorker.register("../dist/service-worker.js");
       });
     }
