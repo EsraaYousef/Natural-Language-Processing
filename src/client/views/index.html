@@ -21,9 +21,9 @@
       <section>
         <div class="container">
           <div class="g-form bg-white w-radius w-shadow w-border p-20">
-            <form onsubmit="return handleSubmit(event)">
+            <form onsubmit="return Client.handleSubmit(event)">
               <div class="form-group">
-                <input class="form-control" id="name" type="text" name="input" value="" placeholder="Name" />
+                <input class="form-control" id="formInputText" type="text" name="input" value="" placeholder="Name" />
               </div>
               <button class="btn btn-main" type="submit" name="" value="submit"
                 onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">submit</button>
@@ -31,17 +31,11 @@
             <div class="text-center mt-20">
               <h1 class="result-title"><strong>Form Results:</strong></h1>
               <div id="results">
-                <h3>Agreement:</h3>
-                <p id="agreement"></p>
-                <br>
-                <h3>Subjectivity:</34>
-                  <p id="subjectivity"></p>
-                  <br>
-                  <h3>Confidence:</h3>
-                  <p id="confidence"></p>
-                  <br>
-                  <h3>Irony:</h3>
-                  <p id="irony"></p>
+                <h3>polarity: <span class="blue" id="polarity"></span></h3>
+                <h3>Confidence: <span class="blue" id="confidence"></span></h3>
+                <h3>Agreement: <span class="blue" id="agreement"></span></h3>
+                <h3>Subjectivity: <span class="blue" id="subjectivity"></span></h3>
+                <h3>Irony: <span class="blue" id="irony"></span></h3>
               </div>
             </div>
           </div>

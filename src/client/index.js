@@ -1,4 +1,5 @@
-import { checkForName } from "./js/nameChecker";
+// import { checkForName } from "./js/nameChecker";
+import { validateUrl } from "./js/validateUrl";
 import { handleSubmit } from "./js/formHandler";
 import "./styles/resets.scss";
 import "./styles/base.scss";
@@ -12,9 +13,9 @@ import imgBrand from "./images/udacity.png";
 const homeImg = document.getElementById("home");
 homeImg.src = imgBrand;
 
-console.log(checkForName);
+console.log(validateUrl);
 
-alert("I EXIST");
-console.log("CHANGE!!");
+// alert("I EXIST");
+// console.log("CHANGE!!");
 
-export { checkForName, handleSubmit };
+export { validateUrl, handleSubmit };
