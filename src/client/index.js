@@ -13,7 +13,7 @@ import imgBrand from "./images/udacity.png";
 const homeImg = document.getElementById("home");
 homeImg.src = imgBrand;
 
-console.log(validateUrl);
+// console.log(validateUrl);
 
 // alert("I EXIST");
 // console.log("CHANGE!!");
