@@ -2,7 +2,6 @@ function handleSubmit(event) {
   event.preventDefault();
 
   let formText = document.getElementById("formInputText").value;
-  // console.log("----", formText);
 
   // check what text was put into the form field
   if (Client.validateUrl(formText)) {
@@ -18,6 +17,7 @@ function handleSubmit(event) {
     })
       .then((res) => res.json())
       .then(function (res) {
+        console.log(res);
         //polarity
         if (res.score_tag === "N") {
           document.getElementById("polarity").innerHTML = res.score_tag;
@@ -30,19 +30,44 @@ function handleSubmit(event) {
           document.getElementById("polarity").innerHTML = " Neutral.";
         } else if (res.score_tag === "P") {
           document.getElementById("polarity").innerHTML = " Positive.";
+        } else if (res.score_tag === "") {
+          document.getElementById("polarity").innerHTML = " ";
         }
         //confidence
-        document.getElementById("confidence").innerHTML = res.confidence + "%";
+        if (res.confidence === null) {
+          document.getElementById("confidence").innerHTML = "";
+        } else if (res.confidence == "") {
+          document.getElementById("confidence").innerHTML = "";
+        } else {
+          document.getElementById("confidence").innerHTML =
+            res.confidence + "%";
+        }
         //agreement
-        document.getElementById("agreement").innerHTML = res.agreement;
+        if (res.agreement === "DISAGREEMENT") {
+          document.getElementById("agreement").innerHTML = " is Disagreement";
+        } else if (res.agreement === "AGREEMENT") {
+          document.getElementById("agreement").innerHTML = " is Agreement";
+        } else if (res.agreement === "") {
+          document.getElementById("agreement").innerHTML = "";
+        }
         //subjectivity
-        document.getElementById("subjectivity").innerHTML = res.subjectivity;
+        if (res.subjectivity === "OBJECTIVE") {
+          document.getElementById("subjectivity").innerHTML = " is Objective";
+        } else if (res.subjectivity === "SUBJECTIVE") {
+          document.getElementById("subjectivity").innerHTML = " is Subjective";
+        }
         //irony
-        document.getElementById("irony").innerHTML = res.irony;
+        if (res.irony === "NONIRONIC") {
+          document.getElementById("irony").innerHTML = "is Not Ironic";
+        } else if (res.irony === "IRONIC") {
+          document.getElementById("irony").innerHTML = "is Ironic";
+        } else if (res.irony === null) {
+          document.getElementById("irony").innerHTML = "";
+        }
       });
     console.log("::: Form Submitted :::");
   } else {
-    alert("Something went wrong with URL ,Please TRY AGAIN");
+    alert("Something went wrong with URL, Please TRY AGAIN");
   }
 }
 
